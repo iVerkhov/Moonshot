@@ -36,7 +36,7 @@ struct MissionView: View {
                         .resizable()
                         .scaledToFit()
 //                        .containerRelativeFrame(.horizontal) { size, axis in
-                            size * 0.6
+//                            size * 0.6
                         }
 //                        .frame(maxWidth: geometry.size.width * 0.6)
                         .padding(.top)

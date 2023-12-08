@@ -29,18 +29,19 @@ struct MissionView: View {
     }
     
     var body: some View {
-        GeometryReader {geometry in
-            ScrollView {
-                VStack {
-                    Image(decorative: mission.image)
-                        .resizable()
-                        .scaledToFit()
-//                        .containerRelativeFrame(.horizontal) { size, axis in
-//                            size * 0.6
-                        }
-//                        .frame(maxWidth: geometry.size.width * 0.6)
-                        .padding(.top)
-//                        .accessibilityLabel(mission.badge)
+        NavigationStack {
+            GeometryReader {geometry in
+                ScrollView {
+                    VStack {
+                        Image(decorative: mission.image)
+                            .resizable()
+                            .scaledToFit()
+                        //                        .containerRelativeFrame(.horizontal) { size, axis in
+                        //                            size * 0.6
+                    }
+                    //                        .frame(maxWidth: geometry.size.width * 0.6)
+                    .padding(.top)
+                    //                        .accessibilityLabel(mission.badge)
                     
                     if let date = mission.launchDate {
                         Label(date.formatted(date: .complete, time: .omitted), systemImage: "calendar")

@@ -17,7 +17,9 @@ struct GridLayout: View {
         ScrollView {
             LazyVGrid(columns: colomns) {
                 ForEach(missions) { mission in
-                    NavigationLink(value: mission) {
+                    NavigationLink() {
+                        MissionView(mission: mission, astronauts: astronauts)
+                    } label: {
                         VStack {
                             Image(mission.image)
                                 .resizable()
@@ -45,13 +47,14 @@ struct GridLayout: View {
                     }
                 }
             }
-            .padding([.horizontal, .bottom])
         }
+        .padding([.horizontal, .bottom])
     }
 }
 
-struct GridLayout_Previews: PreviewProvider {
-    static var previews: some View {
-        GridLayout(astronauts: Bundle.main.decode("astronauts.json"), missions: Bundle.main.decode("missions.json"))
-    }
+
+#Preview {
+    GridLayout(astronauts: Bundle.main.decode("astronauts.json"),
+               missions: Bundle.main.decode("missions.json"))
 }
+

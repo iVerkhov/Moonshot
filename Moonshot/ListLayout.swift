@@ -13,7 +13,9 @@ struct ListLayout: View {
     
     var body: some View {
         List(missions) { mission in
-            NavigationLink(value: mission) {
+            NavigationLink() {
+                MissionView(mission: mission, astronauts: astronauts)
+            } label: {
                 HStack {
                     Image(mission.image)
                         .resizable()
@@ -34,9 +36,7 @@ struct ListLayout: View {
     }
 }
 
-struct ListLayout_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
         ListLayout(astronauts: Bundle.main.decode("astronauts.json"), missions: Bundle.main.decode("missions.json"))
             .preferredColorScheme(.dark)
-    }
 }

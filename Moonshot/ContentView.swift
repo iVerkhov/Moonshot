@@ -28,7 +28,7 @@ struct ContentView: View {
                     showingGrid.toggle()
                 } label: {
                     if showingGrid {
-                        Label("Showing as a List", systemImage: "list.dash")
+                        Label("Showing as a Table", systemImage: "list.dash")
                     } else {
                         Label("Showing as a Grid", systemImage: "square.grid.2x2")
                     }
@@ -37,16 +37,14 @@ struct ContentView: View {
             .navigationTitle("Moonshot")
             .background(.darkBackground)
             .preferredColorScheme(.dark)
-            .navigationDestination(for: Mission.self) { mission in
-                MissionView(mission: mission, astronauts: astronauts)
+//            .navigationDestination(for: Mission.self) { mission in
+//                MissionView(mission: mission, astronauts: astronauts)
             }
         }
         
-    }
+    
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
         ContentView()
-    }
 }
